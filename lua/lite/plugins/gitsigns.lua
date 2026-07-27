@@ -11,7 +11,7 @@ return {
             },
             on_attach = function(bufnr)
                 local gs = require("gitsigns")
-                require("lite.git_keybinds").setup(bufnr, gs)
+                require("lite.config.git_keybinds").setup(bufnr, gs)
            end,
         })
     end

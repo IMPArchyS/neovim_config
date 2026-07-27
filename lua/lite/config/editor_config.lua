@@ -12,9 +12,12 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
--- stdpath("data") resolves correctly on Windows (~/AppData/Local/nvim-data)
--- and Linux/WSL alike, unlike os.getenv("HOME") which isn't reliably set on Windows.
-vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+
+local undodir = vim.fn.stdpath("data") .. "/undodir"
+if vim.fn.stdpath(undodir) == 0 then
+    vim.fn.mkdir(undodir, "p")
+end
+vim.opt.undodir = undodir
 vim.opt.undofile = true
 
 vim.opt.hlsearch = false

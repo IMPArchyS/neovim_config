@@ -17,13 +17,5 @@ return {
                 pcall(vim.treesitter.start)
             end,
         })
-
-        vim.treesitter.language.add("templ", {
-            install_info = {
-                url = "https://github.com/vrischmann/tree-sitter-templ.git",
-                files = { "src/parser.c", "src/scanner.c" },
-                branch = "master",
-            },
-        })
     end
 }
